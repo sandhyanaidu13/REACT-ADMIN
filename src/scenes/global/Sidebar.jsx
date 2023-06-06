@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+// { LevelContext, Menu, MenuContext, MenuItem, MenuItemFR, ProSidebarProvider, Sidebar,
+ //  SidebarContext, SubMenu, SubMenuFR, menuClasses, sidebarClasses, useProSidebar } from "react-pro-sidebar"
+import { Menu, MenuItem,Sidebar} from "react-pro-sidebar"
+   import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
-import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
@@ -16,11 +17,9 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   return (
     <MenuItem
       active={selected === title}
@@ -28,7 +27,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
         color: colors.grey[100],
       }}
       onClick={() => setSelected(title)}
-       icon={icon}
+      icon={icon}
     >
       <Typography>{title}</Typography>
       <Link to={to} />
@@ -36,7 +35,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-const Sidebar = () => {
+Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -62,7 +61,7 @@ const Sidebar = () => {
         },
       }}
     >
-      <ProSidebar collapsed={isCollapsed}>
+      <const ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
@@ -221,7 +220,7 @@ const Sidebar = () => {
             />
           </Box>
         </Menu>
-      </ProSidebar>
+      </const>
     </Box>
   );
 };
